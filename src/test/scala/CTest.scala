@@ -2,11 +2,6 @@ import main.Solver
 import org.scalatest.FunSuite
 
 class CTest extends  FunSuite {
-  test("debug") {
-    assert(Solver.countAC("ACTAC") == 2)
-    assert(Solver.countAC("ACACTACG") == 3)
-  }
-
   test("1") {
     val input =
       """|8 3
@@ -17,10 +12,9 @@ class CTest extends  FunSuite {
     assert(Solver.solve(input) == "2\n0\n3")
   }
 
-  test("cliceByLine") {
-    assert(Solver.sliceByLine("ACACTACG", "3 7") == "ACTAC")
-    assert(Solver.sliceByLine("ACACTACG", "2 3") == "CA")
-    assert(Solver.sliceByLine("ACACTACG", "1 8") == "ACACTACG")
-    assert(Solver.sliceByLine("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "10 20") == "A" * 11)
+  test("accumulate") {
+    val result = Solver.accumulate("ACACTACG", 8)
+    val expected = Array(0, 1, 1, 2, 2, 2, 3, 3)
+    assert(result.toList == expected.toList)
   }
 }
