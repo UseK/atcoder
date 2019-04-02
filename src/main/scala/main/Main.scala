@@ -10,15 +10,21 @@ object Main {
 object Solver {
   def solve(lines: Array[String]) = {
     val input = lines(1)
-    val results = lines.drop(2).map(line => line.split(" ")).map {t =>
-      val sliced = input.slice(t(0).toInt-1, t(1).toInt)
-      countAC(sliced)
+    val results = lines.drop(2).map { line =>
+        val sliced = sliceByLine(input, line)
+        countAC(sliced)
     }
-    results.map(_.toString).mkString("\n")
+    results.mkString("\n")
+  }
+
+  def sliceByLine(input: String, line: String) = {
+    val splited = line.split(' ')
+    val start = splited(0).toInt
+    val end = splited(1).toInt
+    input.slice(start-1, end)
   }
 
   def countAC(input: String) = {
     input.sliding(2).count(_ == "AC")
   }
 }
-
