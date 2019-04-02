@@ -1,13 +1,13 @@
-import main.Solver
+import abc122.B
 import org.scalatest.FunSuite
 
 class BTest extends FunSuite {
   def compare(input: String, output: String): Unit = {
-    assert(Solver.solve(input) == output)
+    assert(B.solve(input) == output)
   }
 
   test("debug") {
-    print(Solver.solve("HATAGAYA"))
+    print(B.solve("HATAGAYA"))
   }
 
   test("1") {

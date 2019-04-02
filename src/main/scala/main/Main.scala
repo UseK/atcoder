@@ -1,25 +1,12 @@
 package main
 
+import abc122.B
+
 object Main {
   def main(args: Array[String]): Unit = {
     val lines = io.Source.stdin.getLines().toList
-    println(Solver.solve(lines.head))
+    println(B.solve(lines.head))
   }
 }
 
-object Solver {
-  val ACGT = Set('A', 'C', 'G', 'T')
-  def solve(input: String): String = {
-    var subCounter = 0
-    var maxCache = 0
-    for (s <- input) {
-      if (ACGT.contains(s)) {
-        subCounter += 1
-      } else {
-        maxCache = List(maxCache, subCounter).max
-        subCounter = 0
-      }
-    }
-    List(maxCache, subCounter).max.toString
-  }
-}
+
