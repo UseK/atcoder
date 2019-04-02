@@ -1,4 +1,4 @@
-import main.Solver
+import abc122.C
 import org.scalatest.FunSuite
 
 class CTest extends  FunSuite {
@@ -9,11 +9,11 @@ class CTest extends  FunSuite {
         |3 7
         |2 3
         |1 8""".stripMargin.split("\n")
-    assert(Solver.solve(input) == "2\n0\n3")
+    assert(C.solve(input) == "2\n0\n3")
   }
 
   test("accumulate") {
-    val result = Solver.accumulate("ACACTACG", 8)
+    val result = C.accumulate("ACACTACG", 8)
     val expected = Array(0, 1, 1, 2, 2, 2, 3, 3)
     assert(result.toList == expected.toList)
   }
