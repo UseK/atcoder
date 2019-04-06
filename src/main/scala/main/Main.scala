@@ -26,9 +26,6 @@ object D {
 
   def initMemo() = {
     var memo: Array[Map[String, Int]] = Array(Map.empty, Map.empty, Map.empty)
-    //memo(2) = ACGT.combinations(2).flatMap { cs =>
-    //  Map(cs.mkString("") -> 1, cs.reverse.mkString("") -> 1)
-    //}.toMap
     memo(2) = ACGT.flatMap { c1 =>
       ACGT.map { c2 =>
         f"$c1$c2" -> 1
@@ -43,7 +40,7 @@ object D {
     currentMemo.keys.foreach { last =>
       ACGT.foreach { c =>
         if (isOK(last + c)) {
-          val nextLast = last.takeRight(3) + c
+          val nextLast = last.takeRight(2) + c
           val added = (nextMemo(nextLast) + currentMemo(last)) % modulus
           val newItem = (nextLast) -> added
           nextMemo += newItem
