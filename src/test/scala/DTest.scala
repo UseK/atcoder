@@ -1,4 +1,4 @@
-import main.D
+import abc122.D
 import org.scalatest.FunSuite
 class DTest extends FunSuite {
   test("debug") {
